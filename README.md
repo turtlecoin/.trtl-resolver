@@ -7,6 +7,7 @@ This repository contains the implementation for a web resolver of .trtl and Open
 ## Prerequisites
 
 * [Node.js](https://nodejs.org/) LTS
+* Yarn Package Manager
 
 ## Setup
 
@@ -19,12 +20,12 @@ git clone https://github.com/turtlecoin/.trtl-resolver
 2) Install the required Node.js modules
 
 ```bash
-cd .trtl-resolver && npm install
+cd .trtl-resolver && yarn && yarn build
 ```
 
 3) Use your favorite text editor to change the values as necessary in `config.json`
 
-```javascript
+```json
 {
   "bindIp": "0.0.0.0",
   "httpPort": 80,
@@ -40,7 +41,7 @@ cd .trtl-resolver && npm install
 4) Fire up the script
 
 ```bash
-node index.js
+node dist/index.js
 ```
 
 5) Optionally, install PM2 or another process manager to keep the service running.
@@ -48,7 +49,7 @@ node index.js
 ```bash
 npm install -g pm2@latest
 pm2 startup
-pm2 start index.js --name trtl-resolver -i max
+pm2 start dist/index.js --name trtl-resolver -i max
 pm2 save
 ```
 
